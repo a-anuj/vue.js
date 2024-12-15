@@ -30,4 +30,9 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+h1{
+  border-bottom: 1px solid #ddd;
+  display: inline-block;
+}
+
 </style>
