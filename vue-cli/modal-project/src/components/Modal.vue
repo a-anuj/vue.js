@@ -1,5 +1,5 @@
 <template>
-    <div class="backdrop">
+    <div class="backdrop" @click="closeModal">
         <div class="modal" :class="{ dark: theme === 'dark' }">
             <h1>{{text}}</h1>
             <p>{{ subtext }}</p>
@@ -9,7 +9,13 @@
 
 <script>
  export default{
-  props: ['text','subtext','theme']
+  props: ['text','subtext','theme'],
+  methods:
+  {
+    closeModal() {
+      this.$emit('close')
+    }
+  }
  }
 </script>
 

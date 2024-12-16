@@ -1,6 +1,10 @@
 <template>
   <h1>Hello</h1>
-  <Modal :text="first_text" :subtext="second_text" :theme="theme"/> 
+  <p>Welcome to the Vue World!!</p>
+  <div v-if="showModal">
+    <Modal :text="first_text" :subtext="second_text" :theme="theme" @close="toggleModal"/> 
+  </div>
+  <button @click="toggleModal">Open Modal</button>
   
 </template>
 
@@ -18,7 +22,14 @@ export default {
       title : "Hello ,Welcome to the Vue World!!",
       first_text:"Purchase your tickets soon",
       second_text:"Sale is gonna end!!",
-      theme: "dark"
+      theme: "dark",
+      showModal: false,
+    }
+  },
+  methods: {
+    toggleModal()
+    {
+      this.showModal = !this.showModal
     }
   }
 }
