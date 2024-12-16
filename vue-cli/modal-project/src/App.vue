@@ -2,7 +2,15 @@
   <h1>Hello</h1>
   <p>Welcome to the Vue World!!</p>
   <div v-if="showModal">
-    <Modal :text="first_text" :subtext="second_text" :theme="theme" @close="toggleModal"/> 
+    <Modal :theme="theme" @close="toggleModal">
+      <template v-slot:links>
+        <a href="#">Sign-Up</a>
+        <a href="#">Sign-In</a>
+      </template>
+        <h1>Welcome to the Friday Sale!</h1>
+        <p>Get everything at 30%-50% offer!!</p>
+    </Modal>
+
   </div>
   <button @click="toggleModal">Open Modal</button>
   

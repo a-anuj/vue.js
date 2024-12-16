@@ -1,8 +1,10 @@
 <template>
     <div class="backdrop" @click.self="closeModal">
         <div class="modal" :class="{ dark: theme === 'dark' }">
-            <h1>{{text}}</h1>
-            
+            <slot>Default content</slot>
+            <div class="actions">
+              <slot name="links">Default content</slot>
+            </div>
             <p> Click outside this popup to close!!</p>
         </div>
     </div>
@@ -10,7 +12,7 @@
 
 <script>
  export default{
-  props: ['text','subtext','theme'],
+  props: ['theme'],
   methods:
   {
     closeModal() {
@@ -45,6 +47,26 @@
     color: white;
   }
   .dark h1{
+    color: white;
+  }
+  .modal .actions{
+    text-align: center;
+    margin: 30px 0px 10px 0px;
+  }
+  .modal .actions a{
+    color: white;
+    padding: 8px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    text-decoration: none;
+    margin: 10px;
+  }
+
+  .modal.sale .actions{
+    color: white;
+
+  }
+  .modal.sale .actions a{
     color: white;
   }
 </style>
