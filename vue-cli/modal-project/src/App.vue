@@ -1,7 +1,7 @@
 <template>
   <h1>Hello</h1>
   <p>Welcome to the Vue World!!</p>
-  <div v-if="showModal">
+  <teleport to="#modals" v-if="showModal">
     <Modal :theme="theme" @close="toggleModal">
       <template v-slot:links>
         <a href="#">Sign-Up</a>
@@ -10,14 +10,14 @@
         <h1>Welcome to the Friday Sale!</h1>
         <p>Get everything at 30%-50% offer!!</p>
     </Modal>
-  </div>
+  </teleport>
 
-  <div v-if="showModal2">
+  <teleport to="#modals" v-if="showModal2">
     <Modal :theme="theme" @close="toggleModal2">
       <h1>Subsribe to get exiting news!!!</h1>
       <p>Thanks for visiting...</p>
     </Modal>
-  </div>
+  </teleport>
 
   
   <button @click="toggleModal">Open Modal</button>
@@ -59,7 +59,7 @@ export default {
 </script>
 
 <style>
-#app {
+#app,#modals {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
