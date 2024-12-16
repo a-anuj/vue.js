@@ -1,13 +1,17 @@
 <template>
     <div class="backdrop">
-        <div class="modal">
-            <h1>Modal</h1>
-            <p>Modal PARA</p>
+        <div class="modal" :class="{ dark: theme === 'dark' }">
+            <h1>{{text}}</h1>
+            <p>{{ subtext }}</p>
         </div>
     </div>
 </template>
 
-
+<script>
+ export default{
+  props: ['text','subtext','theme']
+ }
+</script>
 
 <style>
   .modal{
@@ -28,5 +32,12 @@
     color: #03cfb4;
     border: none;
     padding: 0;
+  }
+  .modal.dark{
+    background-color: black;
+    color: white;
+  }
+  .dark h1{
+    color: white;
   }
 </style>

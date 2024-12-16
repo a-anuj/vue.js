@@ -1,6 +1,6 @@
 <template>
   <h1>Hello</h1>
-  <Modal /> 
+  <Modal :text="first_text" :subtext="second_text" :theme="theme"/> 
   
 </template>
 
@@ -15,7 +15,10 @@ export default {
   },
   data()  {
     return {
-      title : "Hello ,Welcome to the Vue World!!"
+      title : "Hello ,Welcome to the Vue World!!",
+      first_text:"Purchase your tickets soon",
+      second_text:"Sale is gonna end!!",
+      theme: "dark"
     }
   }
 }
@@ -33,6 +36,7 @@ export default {
 h1{
   border-bottom: 1px solid #ddd;
   display: inline-block;
+  padding-bottom: 10px;
 }
 
 </style>
