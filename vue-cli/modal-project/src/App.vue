@@ -10,9 +10,18 @@
         <h1>Welcome to the Friday Sale!</h1>
         <p>Get everything at 30%-50% offer!!</p>
     </Modal>
-
   </div>
+
+  <div v-if="showModal2">
+    <Modal :theme="theme" @close="toggleModal2">
+      <h1>Subsribe to get exiting news!!!</h1>
+      <p>Thanks for visiting...</p>
+    </Modal>
+  </div>
+
+  
   <button @click="toggleModal">Open Modal</button>
+  <button @click="toggleModal2">Open Modal 2</button>
   
 </template>
 
@@ -32,12 +41,18 @@ export default {
       second_text:"Sale is gonna end!!",
       theme: "dark",
       showModal: false,
+      showModal2: false,
     }
   },
   methods: {
     toggleModal()
     {
       this.showModal = !this.showModal
+    },
+
+    toggleModal2() 
+    {
+      this.showModal2 = !this.showModal2
     }
   }
 }

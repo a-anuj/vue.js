@@ -3,7 +3,7 @@
         <div class="modal" :class="{ dark: theme === 'dark' }">
             <slot>Default content</slot>
             <div class="actions">
-              <slot name="links">Default content</slot>
+              <slot name="links"></slot>
             </div>
             <p> Click outside this popup to close!!</p>
         </div>
