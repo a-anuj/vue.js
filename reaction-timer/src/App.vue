@@ -25,6 +25,7 @@ export default {
     showScreen()
     {
       this.isShowing = true,
+      this.showResults = false,
       this.delay = 2000 + Math.random()*5000
     },
     endGame(reactionTime) {
@@ -49,8 +50,30 @@ h1{
   font-size: 60px;
 }
 button{
-  margin-top: 40px;
+  padding-left: 30px;
+  padding-right: 30px ;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-top: 20px;
   margin-bottom: 40px;
+  font-size: large;
+  background: white;
+  border: 2px green solid;
+  cursor: pointer;
+  color: green;
+  transition: 300ms;
+}
+button:hover{
+  background: green;
+  border: 2px green solid ;
+  border-radius: 20px;
+  color: white;
+
+  transition: 300ms;
+}
+button[disabled] {
+  opacity: 0.2;
+  cursor: not-allowed
 }
 p{
   margin-top:30px
