@@ -1,8 +1,9 @@
 <template>
-    <div class="backdrop" @click="closeModal">
+    <div class="backdrop" @click.self="closeModal">
         <div class="modal" :class="{ dark: theme === 'dark' }">
             <h1>{{text}}</h1>
-            <p>{{ subtext }}</p>
+            
+            <p> Click outside this popup to close!!</p>
         </div>
     </div>
 </template>
