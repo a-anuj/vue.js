@@ -1,10 +1,13 @@
 <template>
-  <form>
+  <form @submit.prevent="handleSubmit">
     <label>Email</label>
     <input type="email" required v-model="email">
 
     <label>Password</label>
     <input type="password" required v-model="password">
+    <div v-if="this.passwordError" class="error">
+        {{ this.passwordError }}
+    </div>
 
     <label>Role</label>
     <select v-model="role">
@@ -26,6 +29,11 @@
         <label>Accept Terms and conditions</label>
     </div>
 
+
+    <div class="submit">
+        <button>Create Account</button>
+    </div>
+
   </form>
   <p>Email : {{ email }}</p>
   <p>Password : {{ password }}</p>
@@ -43,7 +51,8 @@ export default {
             role:'Web Developer',
             terms:false,
             currSkill : '',
-            skills:[]
+            skills:[],
+            passwordError:''
         }
     },
     methods:
@@ -60,6 +69,18 @@ export default {
             this.skills = this.skills.filter((item)=> {
                 return skill !== item
             })
+        },
+        handleSubmit() {
+            this.passwordError = this.password.length>6 ? '' : "Password must be 7 characters long"
+            
+            if(!this.passwordError){
+                console.log("Email : ",this.email)
+                console.log("Password : ",this.password)
+                console.log("Skills : ",this.skills)
+                console.log("Role : ",this.role)
+                console.log("Terms accepted? : ",this.terms)
+                
+            }
         }
     }
 }
@@ -104,12 +125,45 @@ export default {
         display: inline-block;
         margin: 20px 10px 0 0;
         padding:6px 12px;
-        background: #eee;
-        border-radius: 20px;
+        background: rgb(201, 221, 201);
+        border-radius: 5px;
         font-size: 12px;
         letter-spacing: 1px;
         font-weight: bold;
         color: #777;
         cursor:pointer
     }
+    
+    button{
+        padding: 14px;
+        margin-top: 20px;
+        border:none;
+        cursor: pointer;
+        border-radius: 5px;
+        background: white;
+        text-align: center;
+        transition: 500ms;
+        color:black;
+        border:1px solid black;
+    }
+    button:hover{
+        transition: 500ms;
+        border-radius: 10px;
+        color: white;
+        background:#404040;
+        border: black solid 1px;
+    }
+
+    .submit{
+        
+        text-align: center;
+    }
+
+    .error{
+        color:red;
+        margin-top: 10px;
+        font-size: 0.8em;
+        font-weight: bold;
+    }
+
 </style>
