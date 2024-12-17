@@ -14,6 +14,13 @@
         <option value="DevOps">DevOps Engineer</option>
     </select>
 
+    <label>Skills</label>
+    <input type="text" v-model="currSkill" @keyup.alt="addSkill">
+    <div v-for="skill in skills" :key="skill" class="pill">
+        {{ skill }}
+    </div>
+
+
     <div class="terms">
         <input type="checkbox" v-model="terms">
         <label>Accept Terms and conditions</label>
@@ -23,7 +30,7 @@
   <p>Email : {{ email }}</p>
   <p>Password : {{ password }}</p>
   <p>Role : {{ role }}</p>
-  <p>Terms : {{ terms }}</p>
+  <p>Terms : {{ terms  }}</p>
 </template>
 
 <script>
@@ -33,7 +40,20 @@ export default {
             email : '',
             password : '',
             role:'Web Developer',
-            terms:false
+            terms:false,
+            currSkill : '',
+            skills:[]
+        }
+    },
+    methods:
+    {
+        addSkill(e){
+            if(e.key==="," && this.currSkill){
+                if(!this.skills.includes(this.currSkill)){
+                    this.skills.push(this.currSkill)
+                }
+                this.currSkill = ''
+            }
         }
     }
 }
