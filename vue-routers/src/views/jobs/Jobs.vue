@@ -13,12 +13,14 @@ import JobDetails from './JobDetails.vue';
 export default {
     data () {
         return {
-            jobs : [
-                { title : "Web Developer" ,id:1,details:"Frontend"},
-                {title : "App Developer",id:2,details:"Frontent"},
-                {title : "DataBase Organizer",id:3,details:"Backend"}
-            ]
+            jobs : []
         }
+    },
+    mounted() {
+        fetch('http://localhost:3000/jobs')
+            .then(res=>res.json())
+            .then(data=> this.jobs=data)
+            .catch(err=>console.log(err.message))
     }
 }
 </script>
