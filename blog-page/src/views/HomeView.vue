@@ -1,26 +1,25 @@
 <template>
   <div class="home">
     <h1>Home page</h1>
-    <input type="text" v-model="search">
-    <p>Searching for {{ search }}</p>
-    <div v-for="name in matchingNames" :key="name">{{ name }}</div>
+    <PostList :posts="posts"/>
+    
   </div>
 </template>
 
 <script>
-import { computed, ref } from 'vue';
-
+import { ref } from 'vue';
+import PostList from '@/components/PostList.vue';
 
 export default {
   name: 'HomeView',
+  components:{PostList},
   setup() {
-    const search = ref('')
-    const names = ref(['Toyota','Honda','Tata','Benz','BMW','Mahindra','Volvo','Skoda'])
-    const matchingNames = computed(()=>{
-      return names.value.filter((name) => name.includes(search.value))
-    })
+    const posts = ref([
+      {title : "Welcome to the blog", body : 'LoremIpsium', id:1},
+      {title : "Top 5 vue tips", body: "Lorem", id:2} 
+    ])
 
-    return {search,matchingNames}
+    return {posts}
   }
 }
 </script>
