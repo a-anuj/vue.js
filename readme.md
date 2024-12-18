@@ -57,7 +57,7 @@ Vue.js provides two ways to define components:
    git clone https://github.com/a-anuj/vue.js.git
    cd vue.js
     ```
-2. **Install Dependancies**:
+2. **Install Dependencies**:
     ```bash
     npm install
     ```
